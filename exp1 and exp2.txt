@@ -1,0 +1,123 @@
+1. Use Eclipse or Net bean platform and acquaint with the various menus. Create a test project, add
+a test class, and run it. See how you can use auto suggestions, auto fill. Try code formatter and
+code refactoring like renaming variables, methods, and classes. Try debug step by step with a small
+program of about 10 to 15 lines which contains at least one if else condition and a for loop.
+
+
+
+public class TestDemo {
+    public static void main(String[] args) {
+
+        for (int i = 1; i <= 10; i++) {
+
+            if (i % 2 == 0) {
+                System.out.println(i + " is Even");
+            } else {
+                System.out.println(i + " is Odd");
+            }
+
+        }
+    }
+}
+
+Use Ctrl + Space to view auto suggestions.
+Use Ctrl + Shift + F to format the code.
+Rename a variable or method using Refactor --->   Rename.
+Place breakpoints and execute the program in Debug Mode.
+Use Fn+F6 to trace the program execution
+
+
+output:
+
+1 is Odd
+2 is Even
+3 is Odd
+4 is Even
+5 is Odd
+6 is Even
+7 is Odd
+8 is Even
+9 is Odd
+10 is Even
+
+
+2 Java program to generate electricity bill. (use if-else-if ladder) inputs are old reading and current
+reading and generate the bill by following slabs/ranges: Scan the inputs using Scanner class. 0-50:
+Rs.1, 50-100: Rs2, 100-200: Rs.3, 200-400: Rs.4, >400: Rs.5. Example if the number of units are 120
+then the consumption charge is (50*1)+(50*2)+(20*3)=Rs.210.
+
+
+import java.util.Scanner;
+
+public class ElectricityBill {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter old reading: ");
+        int oldReading = sc.nextInt();
+
+        System.out.print("Enter current reading: ");
+        int currentReading = sc.nextInt();
+
+        int units = currentReading - oldReading;
+        int bill = 0;
+
+        if (units <= 50) {
+            bill = units * 1;
+        } 
+        else if (units <= 100) {
+            bill = (50 * 1) + ((units - 50) * 2);
+        } 
+        else if (units <= 200) {
+            bill = (50 * 1) + (50 * 2) + ((units - 100) * 3);
+        } 
+        else if (units <= 400) {
+            bill = (50 * 1) + (50 * 2) + (100 * 3) + ((units - 200) * 4);
+        } 
+        else {
+            bill = (50 * 1) + (50 * 2) + (100 * 3) + (200 * 4) + ((units - 400) * 5);
+        }
+
+        System.out.println("Units Consumed: " + units);
+        System.out.println("Electricity Bill: Rs." + bill);
+
+        sc.close();
+    }
+}
+
+output:
+
+Enter old reading: 100
+Enter current reading: 140
+Units Consumed: 40
+Electricity Bill: Rs.40
+
+
+
+
+Slab Rates
+
+Units Range		Rate per Unit
+
+0 - 50				Rs.1
+51 - 100				Rs.2
+101 - 200				Rs.3
+201 - 400				Rs.4
+Above 400			Rs.5
+
+Units = 240
+
+
+- First 100 units are already charged.
+- Remaining 20 units are charged at Rs.3 per unit.
+
+(units - 100) = (120 - 100) = 20
+
+So,
+Bill = (50 × 1) + (50 × 2) + (20 × 3)
+     = 50 + 100 + 60
+     = Rs.210
+
+
+
+
